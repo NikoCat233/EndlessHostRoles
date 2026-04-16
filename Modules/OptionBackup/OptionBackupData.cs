@@ -39,9 +39,6 @@ public class OptionBackupData
 
         // [Vanilla bug] Get the number of people in the room separately, since GetInt cannot get the number of people in the room
         AllValues.Add(new IntOptionBackupValue(Int32OptionNames.MaxPlayers, option.MaxPlayers));
-        // Since TryGetUInt is not implemented, get it separately
-        AllValues.Add(new UIntOptionBackupValue(UInt32OptionNames.Keywords, (uint)option.Keywords));
-
         RoleTypes[] array = [RoleTypes.Scientist, RoleTypes.Engineer, RoleTypes.GuardianAngel, RoleTypes.Shapeshifter, RoleTypes.Noisemaker, RoleTypes.Phantom, RoleTypes.Tracker, RoleTypes.Viper, RoleTypes.Detective];
         foreach (RoleTypes role in array) AllValues.Add(new RoleRateBackupValue(role, option.RoleOptions.GetNumPerGame(role), option.RoleOptions.GetChancePerGame(role)));
     }
